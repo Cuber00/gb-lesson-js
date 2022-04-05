@@ -44,22 +44,41 @@
 
 //Задача 3
 
-// Необходимо попросить пользователя ввести два числа в переменные a и b.
-// Необходимо вывести в консоль один результат из следующих проверок:
-// 1. Если оба числа в переменных a и b положительные, вывести разность
-// чисел a и b, а именно, вычесть из переменной a значение переменной b.
-// 2. Если оба числа в переменных a и b отрицательные, вывести произведение
-// чисел a и b.
-// 3. Если числа в переменных a и b разных знаков, вывести сумму чисел
-// a и b.
-// В остальных случаях программа не должна ничего выводить.
+// const a = Number(prompt("Введите первое число"));
+// const b = Number(prompt("Введите второе число"))
 
-const a = Number(prompt("Введите первое число"));
-const b = Number(prompt("Введите второе число"))
+// if( Math.sign(a) >= 0 && Math.sign(b) >= 0)
+//     console.log(`Оба числа положительные\nВычисляем разность чисел ${a} и ${b} = ${a - b}`);
+// else if( Math.sign(a) === -1 && Math.sign(b) === -1 )
+//     console.log(`Оба числа отрицательные\nВычисляем произведение чисел ${a} и ${b} = ${a * b}`);
+// else
+//     console.log(`Чила имеют разные знаки\nВычисляем сумму чисел ${a} и ${b} = ${a + b}`);
 
-if( Math.sign(a) >= 0 && Math.sign(b) >= 0)
-    console.log(`Оба числа положительные\nВычисляем разность чисел ${a} и ${b} = ${a - b}`);
-else if( Math.sign(a) === -1 && Math.sign(b) === -1 )
-    console.log(`Оба числа отрицательные\nВычисляем произведение чисел ${a} и ${b} = ${a * b}`);
-else
-    console.log(`Чила имеют разные знаки\nВычисляем сумму чисел ${a} и ${b} = ${a + b}`);
+//Задача 4
+
+const firstNumber = Number(prompt("Введите первое число"));
+const secondNumber = Number(prompt("Введите второе число"));
+
+console.log(`Первое чилсло ${firstNumber} \nВторое число ${secondNumber}`);
+console.log(`Сумма чисел равна ${sum(firstNumber, secondNumber)}`);
+console.log(`Разность чисел равна ${difference(firstNumber, secondNumber)}`);
+console.log(`Произведение чисел равна ${multi(firstNumber, secondNumber)}`);
+console.log(`Деление чисел равна ${division(firstNumber, secondNumber)}`);
+
+function sum(a, b){
+    return a + b
+}
+function difference(a, b){
+    if(a > b)
+        return a - b
+    else if(a < b)
+        return b - a
+    else
+        return 0
+}  
+function multi(a, b){
+    return a * b
+}
+function division(a, b){
+    return a / b
+}

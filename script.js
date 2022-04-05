@@ -56,29 +56,44 @@
 
 //Задача 4
 
-const firstNumber = Number(prompt("Введите первое число"));
-const secondNumber = Number(prompt("Введите второе число"));
+// const firstNumber = Number(prompt("Введите первое число"));
+// const secondNumber = Number(prompt("Введите второе число"));
 
-console.log(`Первое чилсло ${firstNumber} \nВторое число ${secondNumber}`);
-console.log(`Сумма чисел равна ${sum(firstNumber, secondNumber)}`);
-console.log(`Разность чисел равна ${difference(firstNumber, secondNumber)}`);
-console.log(`Произведение чисел равна ${multi(firstNumber, secondNumber)}`);
-console.log(`Деление чисел равна ${division(firstNumber, secondNumber)}`);
+// console.log(`Первое чилсло ${firstNumber} \nВторое число ${secondNumber}`);
+// console.log(`Сумма чисел равна ${sum(firstNumber, secondNumber)}`);
+// console.log(`Разность чисел равна ${difference(firstNumber, secondNumber)}`);
+// console.log(`Произведение чисел равна ${multi(firstNumber, secondNumber)}`);
+// console.log(`Деление чисел равна ${division(firstNumber, secondNumber)}`);
 
-function sum(a, b){
-    return a + b
-}
-function difference(a, b){
-    if(a > b)
-        return a - b
-    else if(a < b)
-        return b - a
+// function sum(a, b){
+//     return a + b
+// }
+// function difference(a, b){
+//     if(a > b)
+//         return a - b
+//     else if(a < b)
+//         return b - a
+//     else
+//         return 0
+// }  
+// function multi(a, b){
+//     return a * b
+// }
+// function division(a, b){
+//     return a / b
+// }
+
+//Задача 5
+
+const applesNumber = Number(prompt("Сколько у вас яблок?"));
+const word = declinationOfNumber(applesNumber, "яблоко", "яблока", "яблок");
+console.log(`У вас есть ${applesNumber} ${word}.`);
+
+function declinationOfNumber (quantity, fistrWord, secondWord, thirdWord){
+    if(quantity >= 5)
+        return thirdWord
+    else if(quantity === 1)
+        return fistrWord
     else
-        return 0
-}  
-function multi(a, b){
-    return a * b
-}
-function division(a, b){
-    return a / b
+        return secondWord
 }

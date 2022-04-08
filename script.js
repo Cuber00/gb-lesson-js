@@ -19,15 +19,30 @@
 // console.log(arr);
 
 // Task #3
-// Создайте массив, состоящий из 5 произвольных значений, которые генерируются программой (диапазон значений от 0 до 10).
 
-// Возведите каждый элемент этого массива в квадрат.
+// const arr = new Array();    
+// for (let i=0; i < 5; i++) {
+//     const random = () => Math.floor(Math.random()*10);
+//     arr.push(random());
+// }
+// console.log(arr);
+// const arrNew = arr.map(item => item ** 2);
+// console.log(arrNew);
+
+// Task #4
+// 4
+// Создайте массив, состоящий из 5 элементов. (Элементами массива должны быть произвольные цифры в диапазоне от 0 до 10.)
+// Удалите значение 3, если будет такое значение.
+// Каждое значение исходного элемента массива необходимо увеличить на 10%.
+// Выведите в консоль два этих массива.
+
 
 const arr = new Array();    
 for (let i=0; i < 5; i++) {
     const random = () => Math.floor(Math.random()*10);
     arr.push(random());
 }
+
+const arrNew = arr.filter(item => item !== 3).map(item => +(item * 1.1).toFixed(2))
 console.log(arr);
-const arrNew = arr.map(item => item ** 2);
 console.log(arrNew);

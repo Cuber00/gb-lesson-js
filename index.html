@@ -1,14 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GB - Basic course JS | Lesson: #1</title>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+  <style>
+    .product {
+      width: 200px;
+      padding: 10px;
+      float: left;
+      margin-right: 30px;
+      box-shadow: 0 0 4px black;
+    }
+  </style>
 </head>
 <body>
-    
+<!--
+Обязательное задание.
 
-    <script src="script.js"></script>
+Выполнить все задачи в теге script. Комментарии, в которых написаны задачи, не
+стирать, код с решением задачи пишем под комментарием.
+-->
+<div class="product">
+  <div class="productName">Товар 1</div>
+  <img src="https://picsum.photos/id/367/200/300" alt="">
+  <button>В корзину</button>
+</div>
+<div class="product">
+  <div class="productName">Товар 2</div>
+  <img src="https://picsum.photos/id/425/200/300" alt="">
+  <button>В корзину</button>
+</div>
+<div class="product">
+  <div class="productName">Товар 3</div>
+  <img src="https://picsum.photos/id/429/200/300" alt="">
+  <button>В корзину</button>
+</div>
+
+<script>
+  "use strict";
+
+  /*
+  1. Установите всем элементам с классом "productName" размер шрифта 24px.
+   */
+  const productName = document.querySelectorAll(".productName");
+  productName.forEach(item => item.style.fontSize = "24px");
+
+  /*
+  2. Установите всем элементам с классом "product" внешний отступ справа 50px.
+   */
+  const product = document.querySelectorAll(".product");
+  product.forEach(item => item.style.marginRigth = "50px")
+
+  /*
+  3. При клике на кнопку "В корзину" название кнопки должно поменяться на
+  "Добавлено" и кнопка должна стать неактивной.
+   */
+  
+    product.forEach(item => {
+      const btn = item.querySelector("button");
+      eventClickBtn(btn);
+    })
+    function eventClickBtn(item){
+      item.addEventListener("click", event => event.target.innerText = "Добавлено");
+    }
+  /*
+  4. Создайте полную (глубокую) копию элемента с классом product, измените в
+  этой копии путь до картинки на:
+  https://picsum.photos/id/1080/200/300
+  Поставьте название товара в данной копии "Товар 4" и замените последний
+  отображенный товар на странице на созданную копию. У данной копии также
+  должен правильно работать код из 3-го задания.
+   */
+  const copyProduct = (newData) => {
+    
+    const product = document.querySelectorAll(".product");
+    const copyNode = product[0].cloneNode(true);
+    copyNode.querySelector("img").setAttribute("src", newData.imgSrc);
+    copyNode.querySelector(".productName").innerText = newData.title;
+    eventClickBtn(copyNode.querySelector("button"));
+    return copyNode;
+  };
+  const newData = {
+      imgSrc: "https://picsum.photos/id/1080/200/300",
+      title: "Товар 4",
+  }
+  Array.from(product).pop().replaceWith(copyProduct(newData));
+  /*
+  5. По истечению 2 секунд с момента открытия страницы первый товар должен быть
+  удален из html.
+  */
+  window.onload = function() {
+    setTimeout(() => {
+      product[0].remove();
+    }, 2000)
+  };
+
+
+</script>
 </body>
 </html>

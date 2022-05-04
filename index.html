@@ -20,10 +20,12 @@
 
             return upCount;
         }
-        const result = counter();
+        //const result = counter(); 
         const buttonEl = document.querySelectorAll(".button");
         buttonEl.forEach((el) => {
+            const result = counter(); //Нужно было исправить область видимости для result
             el.addEventListener("click", (e) => {
+                
                 console.log(`Кликов по кнопке ${el.textContent} = ${result()}`);
             });
         });

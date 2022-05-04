@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GB - Basic course JS | Lesson: #1</title>
+    <title>Document</title>
 </head>
-<body>
-    
 
-    <script src="script.js"></script>
+<body>
+    <button class="button">click1</button>
+    <button class="button">click2</button>
+    <script>
+        function counter() {
+            let count = 1;
+            const upCount = () => {
+                return count++;
+            };
+
+            return upCount;
+        }
+        //const result = counter(); 
+        const buttonEl = document.querySelectorAll(".button");
+        buttonEl.forEach((el) => {
+            const result = counter(); //Нужно было исправить область видимости для result
+            el.addEventListener("click", (e) => {
+                
+                console.log(`Кликов по кнопке ${el.textContent} = ${result()}`);
+            });
+        });
+    </script>
 </body>
+
 </html>
